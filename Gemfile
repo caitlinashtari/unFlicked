@@ -46,6 +46,7 @@ group :development, :test do
   gem 'launchy'
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
 end
 
 group :development do
