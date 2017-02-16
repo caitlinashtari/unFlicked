@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users
   root to: "home#index"
 
   resources :users, :only => [:index] do
-    resources :images
+    resources :posts
   end
 
   resources :users, :only => [:show] do
     resources :tags
   end
 
-  resources :images do
+  resources :posts do
 
   end
 end
