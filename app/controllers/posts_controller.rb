@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
 
   def index
-    @posts = Post.all
+    @posts = Post.where(owner_id: current_user.id)
     @post = Post.new
     @user = current_user.id
   end

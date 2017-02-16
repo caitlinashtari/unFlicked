@@ -1,9 +1,14 @@
 <h1>Post</h1>
-<%= image_tag @post.asset.url(:medium) %>
-<%= @post.name %>
-<%= @post.content %>
 
-<p><%= link_to "Edit", edit_user_post_path(current_user.id, @post) %></p>
-<p><%= link_to "Delete", user_post_path(current_user.id, @post),
-                         :data => {:confirm => "Really?",
-                                   :method => "delete"} %></p>
+<%= image_tag @post.asset.url(:medium) %><br>
+<h4><%= @post.name %></h4>
+<p><%= @post.content %></p>
+
+<% if user_signed_in? %>
+  <% if current_user.id == @post.owner_id %>
+    <p><%= link_to "Edit", edit_user_post_path(current_user.id, @post) %></p>
+    <p><%= link_to "Delete", user_post_path(current_user.id, @post),
+                             :data => {:confirm => "Really?",
+                                       :method => "delete"} %></p>
+   <% end %>
+ <% end %>
