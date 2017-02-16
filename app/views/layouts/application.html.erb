@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flickr</title>
+    <title>UnFlicked</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +11,7 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-       <a href="#" class="brand-logo">UnFlicked</a>
+       <a href="/" class="brand-logo">UnFlicked</a>
        <ul id="nav-mobile" class="right hide-on-med-and-down">
          <% if user_signed_in? %>
            Hi <%= current_user.email %>!

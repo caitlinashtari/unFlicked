@@ -26,6 +26,27 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(asset: post_params[:asset], name: post_params[:name], content: post_params[:content], owner_id: current_user.id)
+      flash[:notice] = "Changes saved"
+      redirect_to "/"
+    else
+      flash[:alert] = "Changes were not saved"
+      render :edit
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to "/"
+  end
+
 private
   def post_params
     params.require(:post).permit(:asset, :name, :content)

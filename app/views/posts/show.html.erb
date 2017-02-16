@@ -2,3 +2,8 @@
 <%= image_tag @post.asset.url(:medium) %>
 <%= @post.name %>
 <%= @post.content %>
+
+<p><%= link_to "Edit", edit_user_post_path(current_user.id, @post) %></p>
+<p><%= link_to "Delete", user_post_path(current_user.id, @post),
+                         :data => {:confirm => "Really?",
+                                   :method => "delete"} %></p>
